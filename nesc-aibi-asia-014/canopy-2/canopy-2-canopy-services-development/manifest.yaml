@@ -1,0 +1,52 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: canopy-2-a55022eb-1935
+spec:
+  generators:
+  - list:
+      elements:
+      - chart: zpostgres
+        cluster: https://rdr005.frmewrk.bh-dc-os-ohn-027.k8s.dyn.nesc.nokia.net/k8s/clusters/local
+        component: zalando-postgres
+        lastchanged: 20251205-062529
+        name: zalando-postgres
+        namespace: canopy-2-canopy-services-development
+        project: canopy-2
+        valuesPath: nesc-aibi-asia-014/canopy-2/canopy-2-canopy-services-development/zalando-postgres-1.yaml
+        version: 1.1.9
+      - chart: infra_config
+        cluster: https://rdr005.frmewrk.bh-dc-os-ohn-027.k8s.dyn.nesc.nokia.net/k8s/clusters/local
+        component: resourcequota
+        name: resourcequota
+        namespace: canopy-2-canopy-services-development
+        project: canopy-2
+        valuesPath: nesc-aibi-asia-014/canopy-2/canopy-2-canopy-services-development/resource_allocation_quota-1.yaml
+        version: 0.1.0
+  template:
+    metadata:
+      name: '{{name}}-a55022eb-1935'
+      namespace: myargo
+    spec:
+      destination:
+        namespace: '{{namespace}}'
+        server: '{{cluster}}'
+      project: '{{project}}'
+      sources:
+      - ref: argocdrepo
+        repoURL: https://gitlabe2.ext.net.nokia.com/aidigitaldev/application-framework/continuous-deployments/argocd-projects.git
+        targetRevision: main
+      - chart: '{{chart}}'
+        helm:
+          valueFiles:
+          - $argocdrepo/{{valuesPath}}
+        repoURL: https://aide-docker-local.artifactory-espoo1.int.net.nokia.com:443/artifactory/aide-helm-local
+        targetRevision: '{{version}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
+        - ServerSideApply=true
