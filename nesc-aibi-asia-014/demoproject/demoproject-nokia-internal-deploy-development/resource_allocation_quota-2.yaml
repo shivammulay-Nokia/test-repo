@@ -1,0 +1,7 @@
+quota:
+  cinder-nvme.storageclass.storage.k8s.io/requests.storage: 0Gi
+  cinder.storageclass.storage.k8s.io/requests.storage: 0Gi
+  limits.cpu: '0'
+  limits.memory: 0Gi
+  requests.cpu: '0'
+  requests.memory: 0Gi
