@@ -25,7 +25,7 @@ Metadata:
   Environment: development
   KubeContext: nesc-aibi-asia-014
   Namespace: demoproject-nokia-internal-deploy-development
-  PipeLineTag: demoproject-development-7551184
+  PipeLineTag: demoproject-development-7552213
   Project: demoproject
   ReleaseDate: ''
   ReleasePipelineId: ''
@@ -55,7 +55,7 @@ Pod:
       Enable: 'false'
       averageValue: 500Mi
   Image: ghcr.io/shivammulay-nokia/django
-  ImageTag: '7551184'
+  ImageTag: '7552213'
   SSO_Enable: 'False'
   ServiceNameAngularGUI: angular
   ServiceNameGateKeeper: gatekeeper

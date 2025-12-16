@@ -9,20 +9,20 @@ spec:
       - chart: django
         cluster: https://rdr005.frmewrk.bh-dc-os-ohn-027.k8s.dyn.nesc.nokia.net/k8s/clusters/local
         component: django
-        lastchanged: 20251216-105132
+        lastchanged: 20251216-105901
         name: django
         namespace: demoproject-nokia-internal-deploy-development
         project: demoproject
-        valuesPath: dev/env/nesc-aibi-asia-014/demoproject/demoproject-nokia-internal-deploy-development/django-2.yaml
+        valuesPath: dev/env/nesc-aibi-asia-014/demoproject/demoproject-nokia-internal-deploy-development/django-1.yaml
         version: 2.6.6
       - chart: infra_config
         cluster: https://rdr005.frmewrk.bh-dc-os-ohn-027.k8s.dyn.nesc.nokia.net/k8s/clusters/local
         component: resourcequota
-        lastchanged: 20251216-105132
+        lastchanged: 20251216-105901
         name: resourcequota
         namespace: demoproject-nokia-internal-deploy-development
         project: demoproject
-        valuesPath: dev/env/nesc-aibi-asia-014/demoproject/demoproject-nokia-internal-deploy-development/resource_allocation_quota-2.yaml
+        valuesPath: dev/env/nesc-aibi-asia-014/demoproject/demoproject-nokia-internal-deploy-development/resource_allocation_quota-1.yaml
         version: 0.1.0
   template:
     metadata:
