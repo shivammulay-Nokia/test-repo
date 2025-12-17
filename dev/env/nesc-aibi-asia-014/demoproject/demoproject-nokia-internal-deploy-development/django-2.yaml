@@ -1,0 +1,78 @@
+Ingress:
+  Angular:
+    Enable: 'false'
+    Secret: ''
+  Enable: 'true'
+  GateKeeperAuth:
+    Enable: 'false'
+    Secret: ''
+  Graphql:
+    Enable: flase
+    Secret: ''
+  TLS:
+    Enable: 'false'
+    Secret: abi-tls
+Metadata:
+  Business: nokia-internal
+  Business_Customer: null
+  Cloud: nesc
+  Country: null
+  Customer: null
+  DataCenter: aibi-asia-014
+  DeployName: nokia-internal-deploy
+  Domain: deploy
+  Domain_Country: null
+  Environment: development
+  KubeContext: nesc-aibi-asia-014
+  Namespace: demoproject-nokia-internal-deploy-development
+  PipeLineTag: demoproject-development-7558791
+  Project: demoproject
+  ReleaseDate: ''
+  ReleasePipelineId: ''
+  StorageClass: cinder
+  WildCardDns: aibi-asia-014.dyn.nesc.nokia.net
+  argo: true
+  cluster_name: nesc-aibi-asia-014
+  domain: deploy
+  parent_id: '105167'
+  project_deployment_id: false
+  project_id: '291313'
+  project_name: demoproject
+  release_of_resources: null
+  workflow: Project Deployment Argo Lite
+Pod:
+  AppPrefix: light
+  ConfigmapEnable: 'true'
+  ConfigmapName: solution
+  ElasticAuth: 'false'
+  EnablePostgres: flase
+  HPA:
+    Cpu:
+      Enable: 'false'
+      averageUtilization: 50
+    Enable: 'false'
+    Memory:
+      Enable: 'false'
+      averageValue: 500Mi
+  Image: ghcr.io/shivammulay-nokia/django
+  ImageTag: '7558791'
+  SSO_Enable: 'False'
+  ServiceNameAngularGUI: angular
+  ServiceNameGateKeeper: gatekeeper
+  ServiceNameGraphQL: graphql
+  ServiceNamePostgreSQL: ai-postgres
+Resources:
+  CpuLimit: 4
+  CpuRequest: 4
+Solution:
+  ArtifactsCredentials:
+    docker:
+      password: ''
+      registry: ''
+      user: ''
+    helm:
+      password: ''
+      repo: ''
+      user: ''
+Svc:
+  type: LoadBalancer

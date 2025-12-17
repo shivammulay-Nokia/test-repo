@@ -1,0 +1,81 @@
+Archiving:
+  AWS_ACCESS_KEY_ID: HG19KCZHAH72S37WXX4T
+  AWS_ENDPOINT: https://es-si-s3-z2.eecloud.nsn-net.net
+  AWS_SECRET_ACCESS_KEY: GlPGOjwPV5JWaljtYYwIleNLeeOZZTiGrpBMsJak
+  BACKUP_NUM_TO_RETAIN: '2'
+  BACKUP_SCHEDULE: 0 1 * * *
+  USEWALG_RESTORE: 'false'
+  USE_WALG_BACKUP: 'false'
+  WAL_BUCKET_SCOPE_PREFIX: ''
+  WAL_S3_BUCKET: zalando-test/default/backup
+  enableWALArchiving: 'false'
+CpuLimit: 2
+CpuRequest: 2
+Image: aide-docker-local.esisoj70.emea.nsn-net.net/global/zalando-postgres/spilo-14:2.1-p2
+Instances: 1
+Metadata:
+  Business: nokia-internal
+  Business_Customer: null
+  Cloud: nesc
+  Country: null
+  Customer: null
+  DataCenter: aibi-asia-014
+  DeployName: nokia-internal-deploy
+  Domain: deploy
+  Domain_Country: null
+  Environment: development
+  KubeContext: nesc-aibi-asia-014
+  Namespace: demoproject-nokia-internal-deploy-development
+  PipeLineTag: demoproject-development-7558791
+  Project: demoproject
+  ReleaseDate: ''
+  ReleasePipelineId: ''
+  StorageClass: cinder
+  WildCardDns: aibi-asia-014.dyn.nesc.nokia.net
+  argo: true
+  cluster_name: nesc-aibi-asia-014
+  domain: deploy
+  parent_id: '105167'
+  project_deployment_id: false
+  project_id: '291313'
+  project_name: demoproject
+  release_of_resources: null
+  workflow: Project Deployment Argo Lite
+PgConf:
+  archive_command: 'envdir "/run/etc/wal-e.d/env" wal-g wal-push "%p" && find /home/postgres/pgdata/pgroot/data/pg_wal/
+    -type f -mtime +1 -delete '
+  archive_mode: 'true'
+  archive_timeout: '160'
+  autovacuum_analyze_scale_factor: '0.02'
+  autovacuum_max_workers: '12'
+  autovacuum_vacuum_cost_delay: 5ms
+  autovacuum_vacuum_scale_factor: '0.05'
+  checkpoint_completion_target: '0.9'
+  checkpoint_timeout: 30min
+  cron_database_name: postgres
+  default_statistics_target: '100'
+  effective_cache_size: 12GB
+  effective_io_concurrency: '2'
+  log_statement: none
+  maintenance_work_mem: 1GB
+  max_connections: '100'
+  max_parallel_maintenance_workers: '2'
+  max_parallel_workers: '4'
+  max_parallel_workers_per_gather: '2'
+  max_wal_senders: '90'
+  max_wal_size: 4GB
+  max_worker_processes: '4'
+  min_wal_size: 1GB
+  random_page_cost: '2'
+  shared_buffers: 4GB
+  shared_preload_libraries: pg_cron
+  vacuum_cost_limit: '2400'
+  wal_buffers: 16MB
+  wal_keep_segments: '12'
+  wal_level: logical
+  work_mem: 20971kB
+StorageRequestGi: 5
+Version: '13'
+enableMasterLoadBalancer: false
+enableReplicaLoadBalancer: false
+teamId: ai
